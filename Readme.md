@@ -1,12 +1,14 @@
 !WIP!
 
+[![Tests](https://github.com/adamlaszlo91/tdd-chip-8-python/actions/workflows/workflow.yml/badge.svg?branch=main)](https://github.com/adamlaszlo91/tdd-chip-8-python/actions/workflows/workflow.yml)
+
 # tdd-chip-8-python
 An exercise in TDD by writing a CHIP-8 interpreter.
 
 ## Features
 
 ##  Requirements
-- Python 3.14.4
+- Python 3.14
 
 ## Usage
 ### Install dependencies
