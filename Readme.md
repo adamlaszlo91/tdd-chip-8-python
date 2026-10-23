@@ -1,6 +1,7 @@
 !WIP!
 
 [![Tests](https://github.com/adamlaszlo91/tdd-chip-8-python/actions/workflows/workflow.yml/badge.svg?branch=main)](https://github.com/adamlaszlo91/tdd-chip-8-python/actions/workflows/workflow.yml)
+[![Coverage](https://codecov.io/gh/adamlaszlo91/tdd-chip-8-python/branch/main/graph/badge.svg)](https://codecov.io/gh/adamlaszlo91/tdd-chip-8-python)
 
 # tdd-chip-8-python
 An exercise in TDD by writing a CHIP-8 interpreter.
@@ -22,7 +23,8 @@ pip install -r requirements.txt
 
 ## Test
 ```
-pytest
+coverage run --branch -m pytest
+coverage report --show-missing
 ```
 
 ## Acknowledgments

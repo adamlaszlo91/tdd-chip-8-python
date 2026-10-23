@@ -16,5 +16,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: Run unit tests with pytest
-        run: pytest
+      - name: Run unit tests with coverage
+        run: |
+          coverage run --branch -m pytest
+          coverage report --show-missing
+          coverage xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
