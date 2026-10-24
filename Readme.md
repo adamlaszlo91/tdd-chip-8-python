@@ -26,6 +26,10 @@ pip install -r requirements.txt
 coverage run --branch -m pytest
 coverage report --show-missing
 ```
+or
+```
+sh test.sh
+```
 
 ## Acknowledgments
 

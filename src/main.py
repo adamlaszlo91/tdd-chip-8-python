@@ -12,10 +12,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-# test - init 0
-# test - snapsnot does not change
-# test - size and bounds
-# first 512 0-511) is not accessable "original interpreter was located, and should not be used by programs."
+
 # Most Chip-8 programs start at location 0x200 (512), but some begin at 0x600 (1536). Programs beginning at 0x600 are intended for the ETI 660 computer.
 # parameter file name
 # register init

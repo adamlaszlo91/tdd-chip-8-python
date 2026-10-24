@@ -1,9 +1,10 @@
 from display import Display
+from ram import Ram
 
 
 class Device:
 
-    _ram: bytes = bytes(4096)
+    _ram = Ram(size_in_bytes=4096, read_only_area=range(512))
     _stack: list[bytes] = [bytes(2)] * 16
     _register_v_list: list[bytes] = [bytes(1)] * 16
     _register_i: bytes = bytes(2)
@@ -17,7 +18,7 @@ class Device:
         self._program_counter = b"\x02\x00"
 
     def run(self, program: bytes, instruction_limit: int | None = None):
-        self._ram = (bytes(512) + program).ljust(4096, b"\x00")
+        self._ram.write(512, program)
 
         instruction_count = 0
         while True:
@@ -27,12 +28,9 @@ class Device:
                 else:
                     instruction_count += 1
 
-            instruction = self._ram[
-                (self._program_counter[0] * 256 + self._program_counter[1]) : (
-                    self._program_counter[0] * 256 + self._program_counter[1]
-                )
-                + 2
-            ]
+            instruction = self._ram.read(
+                self._program_counter[0] * 256 + self._program_counter[1], 2
+            )
             print(instruction)
 
             if (instruction[0] >> 4).to_bytes() == b"\x00":
